@@ -9,6 +9,7 @@ from putinjail import procesar_output_chatgpt
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
 from dotenv import load_dotenv
+from generate_xml import *
 
 load_dotenv()
 URL_TOKEN=os.getenv("OPENAI_API_KEY")
@@ -171,6 +172,7 @@ def generar_articulos_concurrente(prompts):
 def main():
     prompts = pedir_datos()
     generar_articulos_concurrente(prompts)
+    generar_todos_los_sitemaps()
 
 if __name__ == "__main__":
     main()
