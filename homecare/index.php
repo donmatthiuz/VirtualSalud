@@ -29,7 +29,7 @@ if (empty($_SESSION['csrf_token'])) {
 $page_title = "Home";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		
 		<meta charset="UTF-8">
@@ -364,7 +364,7 @@ $page_title = "Home";
 				<div class="opacity">
 					<div class="container">
 						<h2>Nuestras enfermeras pueden atender a tus seres queridos llegando a tu casa</h2>
-						<a href="https://wa.me/50256867560" class="theme-button-one" >Escribenos al whatsapp</a>
+						<a href="https://wa.me/50256867313" class="theme-button-one" >Escribenos al whatsapp</a>
 					</div> <!-- /.container -->
 				</div> <!-- /.opacity -->
 			</div> <!-- /.feature-banner -->
@@ -400,40 +400,88 @@ $page_title = "Home";
 
 			<!--
 			=====================================================
-				Free Consultation
+				Free Consultation - FORMULARIO MEJORADO
 			=====================================================
 			-->
 			<div class="consultation-form section-spacing">
 				<div class="container">
 					<div class="theme-title-one">
-						<h2>Necesitas apoyo? </h2>
+						<h2>¿Necesitas apoyo?</h2>
 						<p>Llena el formulario para hablarnos de tu caso</p>
 					</div> <!-- /.theme-title-one -->
 					<div class="clearfix main-content no-gutters row">
 						<div class="col-xl-6 col-lg-5 col-12">
-							<img src="images\home\changer.webp" alt="">
+							<img src="images/home/changer.webp" alt="Servicios de cuidado médico">
 						</div>
 						<div class="col-xl-6 col-lg-7 col-12">
 							<div class="form-wrapper">
-								<form action="consultation.php" method="POST" class="theme-form-one">
+								<!-- Alerta para mostrar mensajes -->
+								<div id="form-message" class="alert" style="display: none; margin-bottom: 20px; padding: 15px; border-radius: 5px;"></div>
+								
+								<form action="consultation.php" method="POST" class="theme-form-one" id="consultationForm">
 									<input type="hidden" name="csrf_token" value="<?php echo sanitize_output($_SESSION['csrf_token']); ?>">
 									<div class="row">
-										<div class="col-md-6"><input type="text" name="name" placeholder="Nombres y Apellidos *" maxlength="50" required></div>
-										<div class="col-md-6"><input type="tel" name="phone" placeholder="Telefono *" maxlength="20" required></div>
-										<div class="col-md-6"><input type="email" name="email" placeholder="Correo Electronico *" maxlength="100" required></div>
 										<div class="col-md-6">
-											<select class="form-control" name="service" id="exampleSelect1" required>
-										      <option value="">Servicios</option>
-										      <option value="business">Atencion Domiciliar</option>
-										      <option value="consumer">Cuidado adulto mayor</option>
-										      <option value="financial">Cuidados paleativos</option>
-										      <option value="software">Administracion de medicamentos</option>
-													<option value="software">Post Operatorios</option>
-										    </select>
+											<input type="text" 
+												   name="name" 
+												   placeholder="Nombres y Apellidos *" 
+												   maxlength="50" 
+												   required
+												   class="form-input">
+											<div class="error-message" id="name-error"></div>
 										</div>
-										<div class="col-12"><textarea name="message" placeholder="Mensaje" maxlength="1000"></textarea></div>
+										
+										<div class="col-md-6">
+											<input type="tel" 
+												   name="phone" 
+												   placeholder="Teléfono *" 
+												   maxlength="20" 
+												   pattern="[0-9+\-\s]+"
+												   required
+												   class="form-input">
+											<div class="error-message" id="phone-error"></div>
+										</div>
+										
+										<div class="col-md-6">
+											<input type="email" 
+												   name="email" 
+												   placeholder="Correo Electrónico *" 
+												   maxlength="100" 
+												   required
+												   class="form-input">
+											<div class="error-message" id="email-error"></div>
+										</div>
+										
+										<div class="col-md-6">
+											<select class="form-control" name="service" required>
+												<option value="">Seleccione un Servicio *</option>
+												<option value="domiciliar">Atención Domiciliar</option>
+												<option value="adulto_mayor">Cuidado Adulto Mayor</option>
+												<option value="paliativos">Cuidados Paliativos</option>
+												<option value="medicamentos">Administración de Medicamentos</option>
+												<option value="postoperatorios">Post Operatorios</option>
+											</select>
+											<div class="error-message" id="service-error"></div>
+										</div>
+										
+										<div class="col-12">
+											<textarea name="message" 
+													  placeholder="Cuéntanos más detalles sobre tu caso..." 
+													  maxlength="1000" 
+													  rows="4"
+													  class="form-input"></textarea>
+											<div class="char-counter">
+												<span id="char-count">0</span>/1000 caracteres
+											</div>
+										</div>
 									</div> <!-- /.row -->
-									<button type="submit" class="theme-button-one">ENVIAR</button>
+									
+									<button type="submit" class="theme-button-one" id="submit-btn">
+										<span class="btn-text">ENVIAR CONSULTA</span>
+										<span class="btn-loading" style="display: none;">
+											<i class="fa fa-spinner fa-spin"></i> ENVIANDO...
+										</span>
+									</button>
 								</form>
 							</div> <!-- /.form-wrapper -->
 						</div> <!-- /.col- -->
@@ -469,7 +517,7 @@ $page_title = "Home";
 										<li>Política de Salud y Seguridad Ocupacional</li>
 										<li>Declaración Sostenibilidad Política Ambiental ISO 14001 2024</li>
 									</ul>
-								<div class="queries"><i class="flaticon-phone-call"></i> Telefono : <a href="https://wa.me/50256867313">(+502) 5686-7560</a></div>
+								<div class="queries"><i class="flaticon-phone-call"></i> Telefono : <a href="https://wa.me/50256867313">(+502) 5686-7313</a></div>
 								
 							</div> <!-- /.about-widget -->
 
@@ -510,9 +558,9 @@ $page_title = "Home";
 							<div class="col-xl-2 col-lg-3 col-sm-6 footer-list">
 								<h6 class="title">Servicios</h6>
 								<ul>
-									<li><a href="service.php">Cuidadora de Salud</a></li>
-									<li><a href="service.php">Auxiliar de Enfermeria</a></li>
-									<li><a href="service.php">Enfermera Profesional</a></li>
+									<li><a href="cuidadora.php">Cuidadora de Salud</a></li>
+									<li><a href="auxiliar.php">Auxiliar de Enfermeria</a></li>
+									<li><a href="profesional.php">Enfermera Profesional</a></li>
 								</ul>
 							</div> <!-- /.footer-list -->
 							
@@ -567,6 +615,98 @@ $page_title = "Home";
 
 		<!-- Theme js -->
 		<script src="js/theme.js"></script>
-		</div> <!-- /.main-page-wrapper -->
+
+		<!-- SCRIPT MEJORADO PARA EL FORMULARIO -->
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+					const form = document.getElementById('consultationForm');
+					const messageTextarea = document.querySelector('textarea[name="message"]');
+					const charCount = document.getElementById('charCount');
+					const submitButton = form.querySelector('button[type="submit"]');
+					const btnText = submitButton.querySelector('.btn-text');
+					const spinner = submitButton.querySelector('.btn-loading');
+					
+					// Contador de caracteres
+					if (messageTextarea && charCount) {
+							messageTextarea.addEventListener('input', function() {
+									const count = this.value.length;
+									charCount.textContent = count;
+									
+									if (count > 1000) {
+											charCount.style.color = '#dc3545';
+									} else {
+											charCount.style.color = '#6c757d';
+									}
+							});
+					}
+					
+					// Validación del formulario
+					form.addEventListener('submit', function(e) {
+							e.preventDefault();
+							
+							// Validar formulario
+							if (!form.checkValidity()) {
+									e.stopPropagation();
+									form.classList.add('was-validated');
+									return;
+							}
+							
+							// Mostrar spinner
+							btnText.textContent = 'ENVIANDO...';
+							spinner.classList.remove('d-none');
+							submitButton.disabled = true;
+							
+							// Enviar formulario
+							const formData = new FormData(form);
+							
+							fetch('consultation.php', {
+									method: 'POST',
+									body: formData
+							})
+							.then(response => response.text())
+							.then(data => {
+												const messageBox = document.getElementById('form-message');
+												messageBox.style.display = 'block';
+												messageBox.classList.add('alert-success');
+												messageBox.textContent = 'Formulario enviado correctamente. ¡Gracias por contactarnos!';
+
+												form.reset();
+												inputs.forEach(input => input.classList.remove('is-valid', 'is-invalid'));
+												
+												btnText.textContent = 'ENVIAR CONSULTA';
+												spinner.classList.add('d-none');
+												submitButton.disabled = false;
+										})
+
+							.catch(error => {
+								const messageBox = document.getElementById('form-message');
+								messageBox.style.display = 'block';
+								messageBox.classList.add('alert-danger');
+								messageBox.textContent = 'Error al enviar el formulario. Intente de nuevo.';
+
+								btnText.textContent = 'ENVIAR CONSULTA';
+								spinner.classList.add('d-none');
+								submitButton.disabled = false;
+						});
+
+					});
+					
+					// Validación en tiempo real
+					const inputs = form.querySelectorAll('input, select, textarea');
+					inputs.forEach(input => {
+							input.addEventListener('blur', function() {
+									if (this.checkValidity()) {
+											this.classList.remove('is-invalid');
+											this.classList.add('is-valid');
+									} else {
+											this.classList.remove('is-valid');
+											this.classList.add('is-invalid');
+									}
+							});
+					});
+			});
+		</script>
+
 	</body>
 </html>
+				

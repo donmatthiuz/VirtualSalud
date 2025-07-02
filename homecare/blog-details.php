@@ -610,7 +610,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
 						<div class="opacity">
 							<div class="container">
 								<h2>Nuestras enfermeras pueden atender a tus seres queridos llegando a tu casa</h2>
-								<a href="https://wa.me/50256867560" class="theme-button-one" >Escribenos al whatsapp</a>
+								<a href="https://wa.me/50256867313" class="theme-button-one" >Escribenos al whatsapp</a>
 							</div> <!-- /.container -->
 						</div> <!-- /.opacity -->
 					</div> 
@@ -721,7 +721,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
 										<li>Política de Salud y Seguridad Ocupacional</li>
 										<li>Declaración Sostenibilidad Política Ambiental ISO 14001 2024</li>
 									</ul>
-								<div class="queries"><i class="flaticon-phone-call"></i> Teléfono : <a href="https://wa.me/50256867313">(+502) 5686-7560</a></div>
+								<div class="queries"><i class="flaticon-phone-call"></i> Teléfono : <a href="https://wa.me/50256867313">(+502) 5686-7313</a></div>
 								
 							</div> <!-- /.about-widget -->
 							
@@ -764,9 +764,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
 							<div class="col-xl-2 col-lg-3 col-sm-6 footer-list">
 								<h6 class="title">Servicios</h6>
 								<ul>
-									<li><a href="cuidadora.php">Cuidadora de Salud</a></li>
-									<li><a href="auxiliar.php">Auxiliar de Enfermeria</a></li>
-									<li><a href="profesional.php">Enfermera Profesional</a></li>
+									<li><a href="../cuidadora.php">Cuidadora de Salud</a></li>
+									<li><a href="../auxiliar.php">Auxiliar de Enfermeria</a></li>
+									<li><a href="../profesional.php">Enfermera Profesional</a></li>
 								</ul>
 							</div> <!-- /.footer-list -->
 							
