@@ -161,7 +161,7 @@ $page_title = "Auxiliar de Enfermeria";
 																$nombre = pathinfo($archivo, PATHINFO_FILENAME);
 																// Convertir guiones o guiones bajos a espacios y capitalizar
 																$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
-																echo "<li><a href=\"https://homecare.global/sitio/$nombre\">$nombre_legible</a></li>";
+																echo "<li><a href=\"https://homecare.global/blogs/$nombre\">$nombre_legible</a></li>";
 														}
 												}
 												?>
