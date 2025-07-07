@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
 		<meta name="apple-mobile-web-app-status-bar-style" content="#09c541">
 		<title>Blog Details - <?php echo $site_name; ?></title>
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
+		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/milogoleg-removebg-preview.png">
 		<!-- Main style sheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- responsive style sheet -->
@@ -473,7 +473,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
 					   		<div class="menu-wrapper float-left">
 					   			<nav id="mega-menu-holder" class="clearfix">
 								   <ul class="clearfix">
-									   <li><a href="../index.php">Home</a></li>
+									   <li><a href="../index.php" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Home</a></li>
 									    <!-- <li><a href="#">PAGES</a>
 									    	<ul class="dropdown">
 									    		<li><a href="about.html">About us</a></li>
@@ -490,11 +490,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
 									    		</li>
 									       </ul>
 									    </li> -->
-									    <li><a href="#">Servicios</a>
+									    <li><a href="#" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Servicios</a>
 									    	<ul class="dropdown">
-									        	<li><a href="../cuidadora.php">Cuidadora de Salud</a></li>
-									        	<li><a href="../auxiliar.php">Auxiliar de Enfermeria</a></li>
-									        	<li><a href="../profesional.php">Enfermera Profesional</a></li>
+									        	<li><a href="https://homecare.global/cuidadora">Cuidadora de Salud</a></li>
+									        	<li><a href="https://homecare.global/auxiliar">Auxiliar de Enfermeria</a></li>
+									        	<li><a href="https://homecare.global/profesional">Enfermera Profesional</a></li>
 									       </ul>
 									    </li>
 									    <!-- <li><a href="#">Portfolio</a>
@@ -503,27 +503,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_comment'])) {
 									        	<li><a href="project-details.html">Project details</a></li>
 									       </ul>
 									    </li> -->
-									    <li><a href="#">Blog</a>
+									    <li>
+												<a href="#" style="color: white; text-decoration: none;" 
+													onmouseover="this.style.textDecoration='underline'" 
+													onmouseout="this.style.textDecoration='none'">
+													Blog
+												</a>
 												<ul class="dropdown">
-														<?php
-														$dir = './';
-														$archivos = scandir($dir);
+													<?php
+													$dir = './';
+													$archivos = scandir($dir);
 
-														foreach ($archivos as $archivo) {
-																// Saltar . y ..
-																if ($archivo === '.' || $archivo === '..') continue;
+													foreach ($archivos as $archivo) {
+															// Saltar . y ..
+															if ($archivo === '.' || $archivo === '..') continue;
 
-																// Solo archivos .php
-																if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
-																		$nombre = pathinfo($archivo, PATHINFO_FILENAME);
-																		// Convertir guiones o guiones bajos a espacios y capitalizar
-																		$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
-																		echo "<li><a href=\"$dir$archivo\">$nombre_legible</a></li>";
-																}
-														}
-														?>
+															// Solo archivos .php
+															if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
+																	$nombre = pathinfo($archivo, PATHINFO_FILENAME);
+																	// Convertir guiones o guiones bajos a espacios y capitalizar
+																	$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
+																	// Generar URL sin .php y apuntando a blogs/
+																	echo "<li><a href=\"https://homecare.global/blogs/$nombre\">$nombre_legible</a></li>";
+															}
+													}
+													?>
 												</ul>
-										</li>
+											</li>
+
 									    <!-- <li><a href="contact.html">contact</a></li> -->
 								   </ul>
 								</nav> <!-- /#mega-menu-holder -->

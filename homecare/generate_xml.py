@@ -34,7 +34,7 @@ def generar_post_sitemap():
         for file in files:
             if file.endswith(".php") and not file.startswith("_"):
                 rel_path = os.path.relpath(os.path.join(root, file), ".")
-                url = BASE_URL + rel_path.replace("\\", "/")
+                url = BASE_URL + rel_path.replace("\\", "/").replace(".php", "")
                 lastmod = datetime.utcfromtimestamp(os.path.getmtime(os.path.join(root, file))).strftime("%Y-%m-%d")
                 urls.append(generar_sitemap_url(url, lastmod=lastmod))
 
@@ -55,7 +55,7 @@ def generar_page_sitemap():
             if file.endswith(".php") and file not in exclude_files and not file.startswith("_"):
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, ".").replace("\\", "/")
-                url = BASE_URL + rel_path
+                url = BASE_URL + rel_path.replace(".php", "")
                 lastmod = datetime.utcfromtimestamp(os.path.getmtime(full_path)).strftime("%Y-%m-%d")
                 urls.append(generar_sitemap_url(url, lastmod=lastmod))
 

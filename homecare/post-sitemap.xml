@@ -1,37 +1,37 @@
 <?xml version="1.0" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost/homecare/blogs/cuidados-de-enfermería-para-adultos-mayores.php</loc>
-    <lastmod>2025-07-02</lastmod>
+    <loc>https://homecare.global/blogs/cuidados-de-enfermería-para-adultos-mayores</loc>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/homecare/blogs/enfermería-domiciliar-24-horas.php</loc>
-    <lastmod>2025-07-02</lastmod>
+    <loc>https://homecare.global/blogs/enfermería-domiciliar-24-horas</loc>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/homecare/blogs/servicios-de-enfermería-a-domicilio.php</loc>
-    <lastmod>2025-07-02</lastmod>
+    <loc>https://homecare.global/blogs/servicios-de-enfermería-a-domicilio</loc>
+    <lastmod>2025-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/homecare/blogs/inc/config.php</loc>
+    <loc>https://homecare.global/blogs/inc/config</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/homecare/blogs/inc/funciones_seguridad.php</loc>
+    <loc>https://homecare.global/blogs/inc/funciones_seguridad</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost/homecare/blogs/inc/sendemail.php</loc>
+    <loc>https://homecare.global/blogs/inc/sendemail</loc>
     <lastmod>2025-06-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

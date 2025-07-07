@@ -10,7 +10,7 @@ function sanitize_output($data) {
 }
 
 // Set page title
-$page_title = "404 - Page Not Found";
+$page_title = "404 - Pagina no Encontrada";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@ $page_title = "404 - Page Not Found";
 		<meta name="apple-mobile-web-app-status-bar-style" content="#061948">
 		<title><?php echo sanitize_output($page_title); ?> - Charles Business Consulting</title>
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
+		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/milogoleg-removebg-preview.png">
 		<!-- Main style sheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- responsive style sheet -->
@@ -63,20 +63,41 @@ $page_title = "404 - Page Not Found";
 			<header class="header-one">
 				<div class="top-header">
 					<div class="container clearfix">
-						<div class="logo float-left"><a href="index.php"><img src="images/logo/logo.png" alt="Charles Business Consulting"></a></div>
+						<div class="logo float-left"><a href="index.php">
+							<img src="./images/logo/milogoleg.png" alt="" style="width: 230px; height: 90px;">
+
 						<div class="address-wrapper float-right">
 							<ul>
+						<li class="address">
+							<a href="https://wa.me/50256867313" target="_blank" style="text-decoration: none; color: inherit;">
+								<div style="display: flex; align-items: center; gap: 10px;">
+									<i class="ic--baseline-whatsapp" style="
+										display: inline-block;
+										width: 24px;
+										height: 24px;
+										--svg: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'%3E%3Cpath fill=\'%2325D366\' d=\'M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28\'/%3E%3C/svg%3E');
+										background-color: currentColor;
+										-webkit-mask-image: var(--svg);
+										mask-image: var(--svg);
+										-webkit-mask-repeat: no-repeat;
+										mask-repeat: no-repeat;
+										-webkit-mask-size: 100% 100%;
+										mask-size: 100% 100%;
+										color: #25D366;
+									"></i>
+
+									<div>
+										<h6 style="margin: 0;">Whatsapp:</h6>
+										<p style="margin: 0;">(+502) 5686 7313</p>
+									</div>
+								</div>
+							</a>
+						</li>
+
 								<li class="address">
-									<i class="icon flaticon-placeholder"></i>
-									<h6>Address:</h6>
-									<p>2A0, Queenstown St, USA.</p>
+									
 								</li>
-								<li class="address">
-									<i class="icon flaticon-multimedia"></i>
-									<h6>Mail us:</h6>
-									<p>supporthere@mail.com</p>
-								</li>
-								<li class="quotes"><a href="contact.php">GET A QUOTES</a></li>
+								<li class=""><a href=""></a></li>
 							</ul>
 						</div> <!-- /.address-wrapper -->
 					</div> <!-- /.container -->
@@ -84,25 +105,21 @@ $page_title = "404 - Page Not Found";
 
 				<div class="theme-menu-wrapper">
 					<div class="container">
-						<div class="bg-wrapper clearfix">
+						<div class="bg-wrapper clearfix" style="background-color: #275e96;">
+
 							<!-- ============== Menu Warpper ================ -->
 					   		<div class="menu-wrapper float-left">
 					   			<nav id="mega-menu-holder" class="clearfix">
 								   <ul class="clearfix">
-									    <li><a href="#">Home</a>
+									   <li><a href="index.php" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Home</a></li>
+									    <!-- <li><a href="#">PAGES</a>
 									    	<ul class="dropdown">
-									        	<li><a href="index.php">Home version one</a></li>
-									        	<li><a href="index-2.php">Home version two</a></li>
-									      </ul>
-									    </li>
-									    <li class="active"><a href="#">PAGES</a>
-									    	<ul class="dropdown">
-									    		<li><a href="about.php">About us</a></li>
-									    		<li><a href="team.php">Our team</a></li>
-									    		<li><a href="faq.php">Faq's</a></li>
-									    		<li><a href="404.php">404</a></li>
-									    		<li><a href="shop.php">Shop</a></li>
-									    		<li><a href="shop-details.php">Shop details</a></li>
+									    		<li><a href="about.html">About us</a></li>
+									    		<li><a href="team.html">Our team</a></li>
+									    		<li><a href="faq.html">Faq's</a></li>
+									    		<li><a href="404.html">404</a></li>
+									    		<li><a href="shop.html">Shop</a></li>
+									    		<li><a href="shop-details.html">Shop details</a></li>
 									            <li><a href="#">Third Level menu</a>
 									    			<ul>
 									    				<li><a href="#">Demo one</a></li>
@@ -110,33 +127,54 @@ $page_title = "404 - Page Not Found";
 									    			</ul>
 									    		</li>
 									       </ul>
-									    </li>
-									    <li><a href="#">Service</a>
-									    	<ul class="dropdown">
-									        	<li><a href="service.php">Service Version one</a></li>
-									        	<li><a href="service-v2.php">Service version two</a></li>
-									        	<li><a href="service-details.php">Service Details</a></li>
+									    </li> -->
+									    <li><a href="#" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Servicios</a>
+									    	<ul class="dropdown" style="color: white;">
+									        	<li><a href="https://homecare.global/cuidadora">Cuidadora de Salud</a></li>
+									        	<li><a href="https://homecare.global/auxiliar">Auxiliar de Enfermeria</a></li>
+									        	<li><a href="https://homecare.global/profesional">Enfermera Profesional</a></li>
 									       </ul>
 									    </li>
-									    <li><a href="#">Portfolio</a>
+									    <!-- <li><a href="#">Portfolio</a>
 									    	<ul class="dropdown">
-									        	<li><a href="project.php">project</a></li>
-									        	<li><a href="project-details.php">Project details</a></li>
+									        	<li><a href="project.html">project</a></li>
+									        	<li><a href="project-details.html">Project details</a></li>
 									       </ul>
-									    </li>
-									    <li><a href="#">Blog</a>
-									    	<ul class="dropdown">
-									        	<li><a href="blog.php">Blog List</a></li>
-									        	<li><a href="blog-grid.php">Blog Grid</a></li>
-									        	<li><a href="blog-details.php">Blog details</a></li>
-									       </ul>
-									    </li>
-									    <li><a href="contact.php">contact</a></li>
+									    </li> -->
+									   <li>
+											<a href="#" style="color: white; text-decoration: none;" 
+													onmouseover="this.style.textDecoration='underline'" 
+													onmouseout="this.style.textDecoration='none'">
+													Blog
+											</a>
+											<ul class="dropdown">
+												<?php
+												$dir = 'blogs/';
+												$archivos = scandir($dir);
+
+												foreach ($archivos as $archivo) {
+														// Saltar . y ..
+														if ($archivo === '.' || $archivo === '..') continue;
+
+														// Solo archivos .php
+														if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
+																$nombre = pathinfo($archivo, PATHINFO_FILENAME);
+																// Convertir guiones o guiones bajos a espacios y capitalizar
+																$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
+																echo "<li><a href=\"https://homecare.global/sitio/$nombre\">$nombre_legible</a></li>";
+														}
+												}
+												?>
+											</ul>
+											</li>
+
+
+									    <!-- <li><a href="contact.html">contact</a></li> -->
 								   </ul>
 								</nav> <!-- /#mega-menu-holder -->
 					   		</div> <!-- /.menu-wrapper -->
 
-					   		<div class="right-widget float-right">
+					   		<!-- <div class="right-widget float-right">
 					   			<ul>
 					   				<li class="social-icon">
 					   					<ul>
@@ -152,14 +190,14 @@ $page_title = "404 - Page Not Found";
 					   				<li class="search-option">
 					   					<div class="dropdown">
 					   						<button type="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search" aria-hidden="true"></i></button>
-											<form action="search.php" method="GET" class="dropdown-menu">
-												<input type="text" name="q" placeholder="Enter Your Search" maxlength="100" required>
-												<button type="submit"><i class="fa fa-search"></i></button>
+											<form action="#" class="dropdown-menu">
+												<input type="text" Placeholder="Enter Your Search">
+												<button><i class="fa fa-search"></i></button>
 											</form>
 					   					</div>
 					   				</li>
 					   			</ul>
-					   		</div> <!-- /.right-widget -->
+					   		</div>  -->
 						</div> <!-- /.bg-wrapper -->
 					</div> <!-- /.container -->
 				</div> <!-- /.theme-menu-wrapper -->
@@ -174,7 +212,7 @@ $page_title = "404 - Page Not Found";
 			<div class="theme-inner-banner section-spacing">
 				<div class="overlay">
 					<div class="container">
-						<h2>Page Not Found</h2>
+						<h2>Pagina no Encontrada</h2>
 					</div> <!-- /.container -->
 				</div> <!-- /.overlay -->
 			</div> <!-- /.theme-inner-banner -->
@@ -187,15 +225,12 @@ $page_title = "404 - Page Not Found";
 			-->
 			<div class="container error-page">
 				<h2>404</h2>
-				<h3>Looks like something went wrong</h3>
-				<p>The page you are looking for was moved, removed, renamed or might never existed.</p>
+				<h3>Parece que algo salio mal</h3>
+				<p>La pagina que buscas no existe, trata de </p>
 				<div>
-					<a href="index.php" class="theme-button-one">Go Home</a>
-					<span class="or">Or</span>
-					<form method="GET" action="search.php" style="display: inline;">
-						<input type="text" name="q" placeholder="Search..." maxlength="100" required>
-						<button type="submit" class="theme-button-one">Search</button>
-					</form>
+					<a href="https://homecare.global/" class="theme-button-one">Volver al inicio</a>
+					
+					
 				</div>
 			</div> <!-- /.error-page -->
 
@@ -210,58 +245,61 @@ $page_title = "404 - Page Not Found";
 					<div class="container">
 						<div class="row">
 							<div class="col-xl-3 col-lg-4 col-sm-6 about-widget">
-								<h6 class="title">About OUR Consulting</h6>
-								<p>That started from this tropic port aboard this tiny ship today still want by theam government they survive on up to thetre east side to a deluxe as soldiers of artics fortune.</p>
-								<div class="queries"><i class="flaticon-phone-call"></i> Any Queries : <a href="tel:+1234567900">(+1) 234 567 900</a></div>
+								<h6 class="title">Politicas</h6>
+									<ul style="color: white;">
+										<li>Política de Calidad</li>
+
+										<li>Declaración de sostenibilidad</li>
+										<li>Política de Salud y Seguridad Ocupacional</li>
+										<li>Declaración Sostenibilidad Política Ambiental ISO 14001 2024</li>
+									</ul>
+								<div class="queries"><i class="flaticon-phone-call"></i> Telefono : <a href="https://wa.me/50256867313">(+502) 5686-7313</a></div>
+								
 							</div> <!-- /.about-widget -->
+
 							<div class="col-xl-4 col-lg-3 col-sm-6 footer-recent-post">
-								<h6 class="title">RECENT POSTS</h6>
-								<ul>
-									<li class="clearfix">
-										<img src="images/blog/1.jpg" alt="Blog post" class="float-left">
-										<div class="post float-left">
-											<a href="blog-details.php">Till wanted by theam govern they survive as soldiers.</a>
-											<div class="date"><i class="fa fa-calendar-o" aria-hidden="true"></i> Feb 06, 2018</div>
-										</div>
-									</li>
-									<li class="clearfix">
-										<img src="images/blog/2.jpg" alt="Blog post" class="float-left">
-										<div class="post float-left">
-											<a href="blog-details.php">World don't move to beat of just one drum.</a>
-											<div class="date"><i class="fa fa-calendar-o" aria-hidden="true"></i> Mar 20, 2018</div>
-										</div>
-									</li>
-								</ul>
-							</div> <!-- /.footer-recent-post -->
+									<h6 class="title">Articulos Recientes</h6>
+									<ul>
+											<?php
+											$carpeta = 'blogs/';
+											$archivos = array_filter(glob($carpeta . '*.php'), 'is_file');
+
+											// Ordenar por fecha de modificación (más recientes primero)
+											usort($archivos, function($a, $b) {
+													return filemtime($b) - filemtime($a);
+											});
+
+											$posts_mostrados = 0;
+											foreach ($archivos as $archivo) {
+													if ($posts_mostrados >= 2) break;
+
+													$nombre = pathinfo($archivo, PATHINFO_FILENAME);
+													$titulo_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
+													$fecha = date('M d, Y', filemtime($archivo));
+													$url = $archivo; // Ruta al archivo del blog
+
+													echo '<li class="clearfix">';
+													echo '    <div class="post float-left">';
+													echo "        <a href=\"$url\">$titulo_legible</a>";
+													echo "        <div class=\"date\"><i class=\"fa fa-calendar-o\" aria-hidden=\"true\"></i> $fecha</div>";
+													echo '    </div>';
+													echo '</li>';
+
+													$posts_mostrados++;
+											}
+											?>
+									</ul>
+							</div>
+
 							<div class="col-xl-2 col-lg-3 col-sm-6 footer-list">
-								<h6 class="title">SOLUTIONS</h6>
+								<h6 class="title">Servicios</h6>
 								<ul>
-									<li><a href="service.php">Travel and Aviation</a></li>
-									<li><a href="service.php">Business Services</a></li>
-									<li><a href="service.php">Consumer Products</a></li>
-									<li><a href="service.php">Financial Services</a></li>
-									<li><a href="service.php">Software Research</a></li>
-									<li><a href="service.php">Quality Resourcing</a></li>
+									<li><a href="https://homecare.global/cuidadora">Cuidadora de Salud</a></li>
+									<li><a href="https://homecare.global/auxiliar">Auxiliar de Enfermeria</a></li>
+									<li><a href="https://homecare.global/profesional">Enfermera Profesional</a></li>
 								</ul>
 							</div> <!-- /.footer-list -->
-							<div class="col-xl-3 col-lg-2 col-sm-6 footer-newsletter">
-								<h6 class="title">NEWSLETTER</h6>
-								<form action="newsletter.php" method="POST">
-									<?php
-									// Generate CSRF token
-									if (empty($_SESSION)) {
-										session_start();
-									}
-									if (empty($_SESSION['csrf_token'])) {
-										$_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-									}
-									?>
-									<input type="hidden" name="csrf_token" value="<?php echo sanitize_output($_SESSION['csrf_token']); ?>">
-									<input type="text" name="name" placeholder="Name *" maxlength="50" required>
-									<input type="email" name="email" placeholder="Email *" maxlength="100" required>
-									<button type="submit" class="theme-button-one">SUBSCRIBE</button>
-								</form>
-							</div>
+							
 						</div> <!-- /.row -->
 					</div> <!-- /.container -->
 				</div> <!-- /.top-footer -->
@@ -269,14 +307,7 @@ $page_title = "404 - Page Not Found";
 					<div class="container">
 						<div class="row">
 							<div class="col-md-6 col-12"><p>&copy; Copyrights <?php echo date('Y'); ?>. All Rights Reserved.</p></div>
-							<div class="col-md-6 col-12">
-								<ul>
-									<li><a href="about.php">About</a></li>
-									<li><a href="service.php">Solutions</a></li>
-									<li><a href="faq.php">FAQ's</a></li>
-									<li><a href="contact.php">Contact</a></li>
-								</ul>
-							</div>
+							
 						</div>
 					</div>
 				</div> <!-- /.bottom-footer -->

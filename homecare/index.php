@@ -124,7 +124,7 @@ $page_title = "Home";
 					   		<div class="menu-wrapper float-left">
 					   			<nav id="mega-menu-holder" class="clearfix">
 								   <ul class="clearfix">
-									   <li><a href="index.php">Home</a></li>
+									   <li><a href="index.php" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Home</a></li>
 									    <!-- <li><a href="#">PAGES</a>
 									    	<ul class="dropdown">
 									    		<li><a href="about.html">About us</a></li>
@@ -141,11 +141,11 @@ $page_title = "Home";
 									    		</li>
 									       </ul>
 									    </li> -->
-									    <li><a href="#">Servicios</a>
-									    	<ul class="dropdown">
-									        	<li><a href="cuidadora.php">Cuidadora de Salud</a></li>
-									        	<li><a href="auxiliar.php">Auxiliar de Enfermeria</a></li>
-									        	<li><a href="profesional.php">Enfermera Profesional</a></li>
+									    <li><a href="#" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Servicios</a>
+									    	<ul class="dropdown" style="color: white;">
+									        	<li><a href="https://homecare.global/cuidadora">Cuidadora de Salud</a></li>
+									        	<li><a href="https://homecare.global/auxiliar">Auxiliar de Enfermeria</a></li>
+									        	<li><a href="https://homecare.global/profesional">Enfermera Profesional</a></li>
 									       </ul>
 									    </li>
 									    <!-- <li><a href="#">Portfolio</a>
@@ -154,27 +154,33 @@ $page_title = "Home";
 									        	<li><a href="project-details.html">Project details</a></li>
 									       </ul>
 									    </li> -->
-									   <li><a href="#">Blog</a>
-												<ul class="dropdown">
-														<?php
-														$dir = 'blogs/';
-														$archivos = scandir($dir);
+									   <li>
+											<a href="#" style="color: white; text-decoration: none;" 
+													onmouseover="this.style.textDecoration='underline'" 
+													onmouseout="this.style.textDecoration='none'">
+													Blog
+											</a>
+											<ul class="dropdown">
+												<?php
+												$dir = 'blogs/';
+												$archivos = scandir($dir);
 
-														foreach ($archivos as $archivo) {
-																// Saltar . y ..
-																if ($archivo === '.' || $archivo === '..') continue;
+												foreach ($archivos as $archivo) {
+														// Saltar . y ..
+														if ($archivo === '.' || $archivo === '..') continue;
 
-																// Solo archivos .php
-																if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
-																		$nombre = pathinfo($archivo, PATHINFO_FILENAME);
-																		// Convertir guiones o guiones bajos a espacios y capitalizar
-																		$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
-																		echo "<li><a href=\"$dir$archivo\">$nombre_legible</a></li>";
-																}
+														// Solo archivos .php
+														if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
+																$nombre = pathinfo($archivo, PATHINFO_FILENAME);
+																// Convertir guiones o guiones bajos a espacios y capitalizar
+																$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
+																echo "<li><a href=\"https://homecare.global/sitio/$nombre\">$nombre_legible</a></li>";
 														}
-														?>
-												</ul>
-										</li>
+												}
+												?>
+											</ul>
+											</li>
+
 
 									    <!-- <li><a href="contact.html">contact</a></li> -->
 								   </ul>
@@ -218,7 +224,7 @@ $page_title = "Home";
 			-->
 			
 			<div id="theme-main-banner" class="banner-one">
-				<div data-src="images/home/slide-1.jpg">
+				<div data-src="images/home/new-slider.png">
 					<div class="camera_caption">
 						<div class="container">
 				<h1 class="wow fadeInUp animated" data-wow-delay="0.2s" style="
@@ -236,7 +242,7 @@ $page_title = "Home";
 						</div> <!-- /.container -->
 					</div> <!-- /.camera_caption -->
 				</div>
-				<div data-src="images/home/slide-2.jpg">
+				<div data-src="images/home/changer-2.png">
 					<div class="camera_caption">
 						<div class="container">
 							
@@ -255,7 +261,7 @@ $page_title = "Home";
 						</div> <!-- /.container -->
 					</div> <!-- /.camera_caption -->
 				</div>
-				<div data-src="images/home/slide-3.jpg">
+				<div data-src="images/home/changer-3.png">
 					<div class="camera_caption">
 						<div class="container">
 							
@@ -286,21 +292,21 @@ $page_title = "Home";
 					<div class="item">
 						<div class="main-content" style="background:#fafafa;">
 							<img src="images/icon/nurse.png" alt="Consumer Insights">
-							<h4><a href="service-details.php">Enfermeras a domicilio</a></h4>
+							<h4>Enfermeras a domicilio</h4>
 							<p>Ofrecemos enfermeras a domilio, que llegan a tu casa a dar atencion medica</p>
 						</div> <!-- /.main-content -->
 					</div> <!-- /.item -->
 					<div class="item">
 						<div class="main-content" style="background:#f6f6f6;">
 							<img src="images/icon/medicine.png" alt="Emerging Ideas">
-							<h4><a href="service-details.php">Administracion de Medicamentos</a></h4>
+							<h4>Administracion de Medicamentos</h4>
 							<p>Nuestras enfermeras tienen la capacidad de administrar diferentes medicamentos</p>
 						</div> <!-- /.main-content -->
 					</div> <!-- /.item -->
 					<div class="item">
 						<div class="main-content" style="background:#efefef;">
 							<img src="images/icon/24-hours (1).png" alt="Thought Leadership">
-							<h4><a href="service-details.php">Atencion 24 horas</a></h4>
+							<h4>Atencion 24 horas</h4>
 							<p>Atencion a toda hora del dia a tus seres queridos</p>
 							<br/>
 							<br/>
@@ -309,7 +315,7 @@ $page_title = "Home";
 					<div class="item">
 						<div class="main-content" style="background:#e9e9e9;">
 							<img src="images/icon/price-down (1).png" alt="Marketing Goals">
-							<h4><a href="service-details.php">Bajo Costo</a></h4>
+							<h4>Bajo Costo</h4>
 							<p>Servicios a bajo costo, cotiza con nosotros en nuestro whatsapp +502 5686-7560</p>
 							
 						</div> <!-- /.main-content -->
@@ -558,9 +564,9 @@ $page_title = "Home";
 							<div class="col-xl-2 col-lg-3 col-sm-6 footer-list">
 								<h6 class="title">Servicios</h6>
 								<ul>
-									<li><a href="cuidadora.php">Cuidadora de Salud</a></li>
-									<li><a href="auxiliar.php">Auxiliar de Enfermeria</a></li>
-									<li><a href="profesional.php">Enfermera Profesional</a></li>
+									<li><a href="https://homecare.global/cuidadora">Cuidadora de Salud</a></li>
+									<li><a href="https://homecare.global/auxiliar">Auxiliar de Enfermeria</a></li>
+									<li><a href="https://homecare.global/profesional">Enfermera Profesional</a></li>
 								</ul>
 							</div> <!-- /.footer-list -->
 							

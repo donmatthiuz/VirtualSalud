@@ -29,7 +29,7 @@ $page_title = "Auxiliar de Enfermeria";
 		<meta name="apple-mobile-web-app-status-bar-style" content="#061948">
 		<title><?php echo sanitize_output($page_title); ?> - Home Care Global</title>
 		<!-- Favicon -->
-		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/icon.png">
+		<link rel="icon" type="image/png" sizes="56x56" href="images/fav-icon/milogoleg-removebg-preview.png">
 		<!-- Main style sheet -->
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<!-- responsive style sheet -->
@@ -111,7 +111,7 @@ $page_title = "Auxiliar de Enfermeria";
 					   		<div class="menu-wrapper float-left">
 					   			<nav id="mega-menu-holder" class="clearfix">
 								   <ul class="clearfix">
-									   <li><a href="index.php">Home</a></li>
+									   <li><a href="index.php" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Home</a></li>
 									    <!-- <li><a href="#">PAGES</a>
 									    	<ul class="dropdown">
 									    		<li><a href="about.html">About us</a></li>
@@ -128,11 +128,11 @@ $page_title = "Auxiliar de Enfermeria";
 									    		</li>
 									       </ul>
 									    </li> -->
-									    <li><a href="#">Servicios</a>
-									    	<ul class="dropdown">
-									        	<li><a href="cuidadora.php">Cuidadora de Salud</a></li>
-									        	<li><a href="auxiliar.php">Auxiliar de Enfermeria</a></li>
-									        	<li><a href="profesional.php">Enfermera Profesional</a></li>
+									    <li><a href="#" style="color: white; text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Servicios</a>
+									    	<ul class="dropdown" style="color: white;">
+									        	<li><a href="https://homecare.global/cuidadora">Cuidadora de Salud</a></li>
+									        	<li><a href="https://homecare.global/auxiliar">Auxiliar de Enfermeria</a></li>
+									        	<li><a href="https://homecare.global/profesional">Enfermera Profesional</a></li>
 									       </ul>
 									    </li>
 									    <!-- <li><a href="#">Portfolio</a>
@@ -141,27 +141,33 @@ $page_title = "Auxiliar de Enfermeria";
 									        	<li><a href="project-details.html">Project details</a></li>
 									       </ul>
 									    </li> -->
-									   <li><a href="#">Blog</a>
-												<ul class="dropdown">
-														<?php
-														$dir = 'blogs/';
-														$archivos = scandir($dir);
+									   <li>
+											<a href="#" style="color: white; text-decoration: none;" 
+													onmouseover="this.style.textDecoration='underline'" 
+													onmouseout="this.style.textDecoration='none'">
+													Blog
+											</a>
+											<ul class="dropdown">
+												<?php
+												$dir = 'blogs/';
+												$archivos = scandir($dir);
 
-														foreach ($archivos as $archivo) {
-																// Saltar . y ..
-																if ($archivo === '.' || $archivo === '..') continue;
+												foreach ($archivos as $archivo) {
+														// Saltar . y ..
+														if ($archivo === '.' || $archivo === '..') continue;
 
-																// Solo archivos .php
-																if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
-																		$nombre = pathinfo($archivo, PATHINFO_FILENAME);
-																		// Convertir guiones o guiones bajos a espacios y capitalizar
-																		$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
-																		echo "<li><a href=\"$dir$archivo\">$nombre_legible</a></li>";
-																}
+														// Solo archivos .php
+														if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
+																$nombre = pathinfo($archivo, PATHINFO_FILENAME);
+																// Convertir guiones o guiones bajos a espacios y capitalizar
+																$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
+																echo "<li><a href=\"https://homecare.global/sitio/$nombre\">$nombre_legible</a></li>";
 														}
-														?>
-												</ul>
-										</li>
+												}
+												?>
+											</ul>
+											</li>
+
 
 									    <!-- <li><a href="contact.html">contact</a></li> -->
 								   </ul>
@@ -298,7 +304,7 @@ $page_title = "Auxiliar de Enfermeria";
 				Footer
 			=====================================================
 			-->
-				<footer class="theme-footer-one">
+			<footer class="theme-footer-one">
 				<div class="top-footer">
 					<div class="container">
 						<div class="row">
@@ -352,9 +358,9 @@ $page_title = "Auxiliar de Enfermeria";
 							<div class="col-xl-2 col-lg-3 col-sm-6 footer-list">
 								<h6 class="title">Servicios</h6>
 								<ul>
-									<li><a href="cuidadora.php">Cuidadora de Salud</a></li>
-									<li><a href="auxiliar.php">Auxiliar de Enfermeria</a></li>
-									<li><a href="profesional.php">Enfermera Profesional</a></li>
+									<li><a href="https://homecare.global/cuidadora">Cuidadora de Salud</a></li>
+									<li><a href="https://homecare.global/auxiliar">Auxiliar de Enfermeria</a></li>
+									<li><a href="https://homecare.global/profesional">Enfermera Profesional</a></li>
 								</ul>
 							</div> <!-- /.footer-list -->
 							
