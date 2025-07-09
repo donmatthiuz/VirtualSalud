@@ -20,6 +20,102 @@ function sanitize_input($data) {
     return $data;
 }
 
+// Function to send contact form to API
+function send_contact_to_api($data) {
+    $api_url = 'http://localhost:8000/contact';
+    
+    // Prepare JSON payload
+    $json_data = json_encode($data);
+    
+    // Initialize cURL
+    $ch = curl_init();
+    
+    // Set cURL options
+    curl_setopt($ch, CURLOPT_URL, $api_url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'Content-Length: ' . strlen($json_data)
+    ]);
+    
+    // Execute request
+    $response = curl_exec($ch);
+    $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    
+    curl_close($ch);
+    
+    // Return response data
+    return [
+        'success' => $http_code >= 200 && $http_code < 300,
+        'http_code' => $http_code,
+        'response' => $response,
+        'error' => $error
+    ];
+}
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['csrf_token'])) {
+    // Verify CSRF token
+    if (!hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid CSRF token']);
+        exit;
+    }
+    
+    // Validate and sanitize input
+    $name = sanitize_input($_POST['name'] ?? '');
+    $phone = sanitize_input($_POST['phone'] ?? '');
+    $email = sanitize_input($_POST['email'] ?? '');
+    $service = sanitize_input($_POST['service'] ?? '');
+    $message = sanitize_input($_POST['message'] ?? '');
+    
+    // Basic validation
+    $errors = [];
+    if (empty($name)) $errors[] = 'Name is required';
+    if (empty($phone)) $errors[] = 'Phone is required';
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Valid email is required';
+    if (empty($service)) $errors[] = 'Service selection is required';
+    
+    if (empty($errors)) {
+        // Map service values to display names
+        $service_map = [
+            'domiciliar' => 'Atención Domiciliar',
+            'adulto_mayor' => 'Cuidado de Adultos Mayores',
+            'paliativos' => 'Cuidados Paliativos',
+            'medicamentos' => 'Administración de Medicamentos',
+            'postoperatorios' => 'Post Operatorios'
+        ];
+        
+        $service_name = $service_map[$service] ?? $service;
+        
+        // Prepare data for API
+        $api_data = [
+            'name' => $name,
+            'phone' => $phone,
+            'email' => $email,
+            'service_type' => $service_name,
+            'message' => $message
+        ];
+        
+        // Send to API
+        $api_response = send_contact_to_api($api_data);
+        
+        if ($api_response['success']) {
+            echo json_encode(['success' => true, 'message' => 'Form submitted successfully']);
+        } else {
+            error_log("API Error: HTTP {$api_response['http_code']}, Response: {$api_response['response']}, cURL Error: {$api_response['error']}");
+            echo json_encode(['success' => false, 'message' => 'Error sending form. Please try again.']);
+        }
+    } else {
+        echo json_encode(['success' => false, 'errors' => $errors]);
+    }
+    exit;
+}
+
 // Generate CSRF token
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -163,19 +259,21 @@ $page_title = "Home";
 											<ul class="dropdown">
 												<?php
 												$dir = 'blogs/';
-												$archivos = scandir($dir);
+												if (is_dir($dir)) {
+													$archivos = scandir($dir);
 
-												foreach ($archivos as $archivo) {
+													foreach ($archivos as $archivo) {
 														// Saltar . y ..
 														if ($archivo === '.' || $archivo === '..') continue;
 
 														// Solo archivos .php
 														if (pathinfo($archivo, PATHINFO_EXTENSION) === 'php') {
-																$nombre = pathinfo($archivo, PATHINFO_FILENAME);
-																// Convertir guiones o guiones bajos a espacios y capitalizar
-																$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
-																echo "<li><a href=\"https://homecare.global/blogs/$nombre\">$nombre_legible</a></li>";
+															$nombre = pathinfo($archivo, PATHINFO_FILENAME);
+															// Convertir guiones o guiones bajos a espacios y capitalizar
+															$nombre_legible = ucwords(str_replace(['-', '_'], ' ', $nombre));
+															echo "<li><a href=\"https://homecare.global/blogs/$nombre\">$nombre_legible</a></li>";
 														}
+													}
 												}
 												?>
 											</ul>
@@ -424,7 +522,7 @@ $page_title = "Home";
 								<!-- Alerta para mostrar mensajes -->
 								<div id="form-message" class="alert" style="display: none; margin-bottom: 20px; padding: 15px; border-radius: 5px;"></div>
 								
-								<form action="consultation.php" method="POST" class="theme-form-one" id="consultationForm">
+								<form method="POST" class="theme-form-one" id="consultationForm">
 									<input type="hidden" name="csrf_token" value="<?php echo sanitize_output($_SESSION['csrf_token']); ?>">
 									<div class="row">
 										<div class="col-md-6">
@@ -462,7 +560,7 @@ $page_title = "Home";
 											<select class="form-control" name="service" required>
 												<option value="">Seleccione un Servicio *</option>
 												<option value="domiciliar">Atención Domiciliar</option>
-												<option value="adulto_mayor">Cuidado Adulto Mayor</option>
+												<option value="adulto_mayor">Cuidado de Adultos Mayores</option>
 												<option value="paliativos">Cuidados Paliativos</option>
 												<option value="medicamentos">Administración de Medicamentos</option>
 												<option value="postoperatorios">Post Operatorios</option>
@@ -503,7 +601,6 @@ $page_title = "Home";
 			=====================================================
 			-->
 			 <!-- /.partner-section -->
-
 
 			<!--
 			=====================================================
