@@ -2,3 +2,6 @@ python-dotenv
 requests
 tqdm
 openai
+fastapi
+uvicorn
+pydantic[email]
